@@ -7,16 +7,13 @@ import requests
 
 my_cnx = st.connection("snowflake")
 my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(),CURRENT_REGION()")
+#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(),CURRENT_REGION()")
+my_cur.execute("select color_or_style from catalog_for_website")
 my_data_row = my_cur.fetchone()
-st.text("Hello from Snowflake:")
+st.title('Zena\'s Amazing Athleisure Catalog')
+#st.text("Hello from Snowflake:")
 st.text(my_data_row)
 
-# import streamlit
-# import snowflake.connector
-# import pandas
-# streamlit.title('Zena\'s Amazing Athleisure Catalog')
-# # connect to snowflake
 # my_cnx = streamlit.connection("snowflake")
 # my_cur = my_cnx.cursor()
 # # run a snowflake query and put it all in a var called my_catalog
